@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infinite Canvas</title>
-    <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
-        background-color: #1a1a1a;
-      }
 
-      #canvas-container {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infinite Canvas</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+    }
 
-      #canvas {
-        width: 500px;
-        height: 500px;
-        background-color: #2d2d2d;
-        border-radius: 10px;
-      }
+    #canvas-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-      .controls {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-      }
+    #canvas {
+      width: 500px;
+      height: 500px;
+      background-color: #2d2d2d;
+      border-radius: 10px;
+    }
 
-      button {
-        padding: 10px 15px;
-        font-size: 16px;
-        cursor: pointer;
-        background-color: #333;
-        color: #fff;
-        border: 1px solid #444;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-      }
+    .controls {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
 
-      button:hover {
-        background-color: #444;
-        border-color: #555;
-      }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
 
-      button:active {
-        background-color: #222;
-        transform: translateY(1px);
-      }
-    </style>
-  </head>
+    button:hover {
+      background-color: #444;
+      border-color: #555;
+    }
 
-  <body>
-    <div id="canvas-container">
-      <div id="coordinates" style="color: white; user-select: none"></div>
-      <canvas id="canvas"></canvas>
-    </div>
-    <div class="controls">
-      <button id="up">Up</button>
-      <button id="down">Down</button>
-      <button id="left">Left</button>
-      <button id="right">Right</button>
-      <button id="zoomIn">Zoom In</button>
-      <button id="zoomOut">Zoom Out</button>
-    </div>
+    button:active {
+      background-color: #222;
+      transform: translateY(1px);
+    }
+  </style>
+</head>
 
-    <script src="test.js"></script>
-  </body>
+<body>
+  <div id="canvas-container">
+    <div id="coordinates" style="color: white; user-select: none"></div>
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="controls">
+    <button id="up">Up</button>
+    <button id="down">Down</button>
+    <button id="left">Left</button>
+    <button id="right">Right</button>
+    <button id="zoomIn">Zoom In</button>
+    <button id="zoomOut">Zoom Out</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
 </html>
 :
