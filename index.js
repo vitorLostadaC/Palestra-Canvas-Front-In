@@ -93,22 +93,22 @@ canvas.addEventListener('wheel', (e) => {
 
 // Keep the button controls for additional navigation
 document.getElementById('up').addEventListener('click', () => {
-  offsetY += 10
-  draw()
-})
-
-document.getElementById('down').addEventListener('click', () => {
   offsetY -= 10
   draw()
 })
 
+document.getElementById('down').addEventListener('click', () => {
+  offsetY += 10
+  draw()
+})
+
 document.getElementById('left').addEventListener('click', () => {
-  offsetX += 10
+  offsetX -= 10
   draw()
 })
 
 document.getElementById('right').addEventListener('click', () => {
-  offsetX -= 10
+  offsetX += 10
   draw()
 })
 
