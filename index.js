@@ -35,7 +35,6 @@ function draw() {
   updateCoordinates()
 }
 
-// Dragging functionality
 canvas.addEventListener('mousedown', (e) => {
   isDragging = true
   lastX = e.clientX
@@ -62,20 +61,18 @@ canvas.addEventListener('mouseleave', () => {
   isDragging = false
 })
 
-// Touchpad scrolling and zooming
 canvas.addEventListener('wheel', (e) => {
   e.preventDefault()
 
-  // Check if it's a pinch-to-zoom gesture (Ctrl key or touchpad pinch)
+  // (Ctrl key or touchpad pinch)
+  console.log(e.ctrlKey)
   if (e.ctrlKey) {
     const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1
 
-    // Get mouse position relative to canvas
     const rect = canvas.getBoundingClientRect()
     const mouseX = e.clientX - rect.left
     const mouseY = e.clientY - rect.top
 
-    // Calculate zoom center based on mouse position
     const centerX = mouseX - offsetX
     const centerY = mouseY - offsetY
 
@@ -83,7 +80,6 @@ canvas.addEventListener('wheel', (e) => {
     offsetX -= centerX * (zoomFactor - 1)
     offsetY -= centerY * (zoomFactor - 1)
   } else {
-    // Regular scrolling (panning)
     offsetX -= e.deltaX
     offsetY -= e.deltaY
   }
@@ -91,7 +87,6 @@ canvas.addEventListener('wheel', (e) => {
   draw()
 })
 
-// Keep the button controls for additional navigation
 document.getElementById('up').addEventListener('click', () => {
   offsetY -= 10
   draw()
@@ -112,7 +107,6 @@ document.getElementById('right').addEventListener('click', () => {
   draw()
 })
 
-// Zoom controls
 function handleZoom(zoomFactor) {
   const centerScreenX = canvas.width / 2 - offsetX
   const centerScreenY = canvas.height / 2 - offsetY
