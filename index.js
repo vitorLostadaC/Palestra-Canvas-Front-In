@@ -10,11 +10,19 @@ let scale = 1
 let isDragging = false
 let lastX = 0
 let lastY = 0
+let circles = []
 
 function drawCircle() {
   ctx.fillStyle = 'red'
   ctx.beginPath()
   ctx.arc(canvas.width / 2, canvas.height / 2, 10, 0, Math.PI * 2)
+  ctx.fill()
+}
+
+function drawGreenCircle(x, y) {
+  ctx.fillStyle = 'green'
+  ctx.beginPath()
+  ctx.arc(x, y, 10, 0, Math.PI * 2)
   ctx.fill()
 }
 
@@ -31,11 +39,29 @@ function draw() {
   ctx.translate(offsetX, offsetY)
   ctx.scale(scale, scale)
   drawCircle()
+
+  circles.forEach((circle) => {
+    drawGreenCircle(circle.x, circle.y)
+  })
+
   ctx.restore()
   updateCoordinates()
 }
 
+canvas.addEventListener('contextmenu', (e) => {
+  e.preventDefault()
+})
+
 canvas.addEventListener('mousedown', (e) => {
+  if (e.ctrlKey) {
+    const rect = canvas.getBoundingClientRect()
+    const x = (e.clientX - rect.left - offsetX) / scale
+    const y = (e.clientY - rect.top - offsetY) / scale
+    circles.push({ x, y })
+    draw()
+    return
+  }
+
   isDragging = true
   lastX = e.clientX
   lastY = e.clientY
