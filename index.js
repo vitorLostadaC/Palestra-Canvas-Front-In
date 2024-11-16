@@ -90,8 +90,6 @@ canvas.addEventListener('mouseleave', () => {
 canvas.addEventListener('wheel', (e) => {
   e.preventDefault()
 
-  // (Ctrl key or touchpad pinch)
-  console.log(e.ctrlKey)
   if (e.ctrlKey) {
     const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1
 
