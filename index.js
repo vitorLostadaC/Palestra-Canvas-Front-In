@@ -97,12 +97,12 @@ canvas.addEventListener('wheel', (e) => {
     const mouseX = e.clientX - rect.left
     const mouseY = e.clientY - rect.top
 
-    const centerX = mouseX - offsetX
-    const centerY = mouseY - offsetY
+    const relativeMouseX = mouseX - offsetX
+    const relativeMouseY = mouseY - offsetY
 
     scale *= zoomFactor
-    offsetX -= centerX * (zoomFactor - 1)
-    offsetY -= centerY * (zoomFactor - 1)
+    offsetX -= relativeMouseX * (zoomFactor - 1)
+    offsetY -= relativeMouseY * (zoomFactor - 1)
   } else {
     offsetX -= e.deltaX
     offsetY -= e.deltaY
